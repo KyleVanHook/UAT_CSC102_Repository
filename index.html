@@ -1,11 +1,64 @@
+<!-- Kyle Van Hook -->
 <!DOCTYPE html>
 <html lang="en">
+    <!--Contains the meta data for the HTML document-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>This is our first page</title>
+
+    <!--Style for the body,header, main, and any buttons on the HTML page-->
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #750808;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            background-color: #750808;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #510505;
+        }
+    </style>
+
 </head>
+<!--Body of the HYML page-->
 <body>
+    <!--Header of the HTML page-->
+    <header>
+        <h1> Welcome to our First Page.</h1>
+    </header>
+
+    <!--Main body of the HTML page.-->
+    <main>
+    <p>This is a simple HTML page with some basic styling.</p>
+    <!--inserting a picture of a cat onto the HTML page-->
+    <p><img id= "memeImage" src= "Meme_Cat.jpg" alt= "This is a picture of a cat with a meme." width = "500px" height = "500px"></p>
+    <!--Creating a button that will run an alert function and display text when clicked-->
+    <button onClick = "alert('Hello from your first page!')">Click Me</button>
+    </main>
     
 </body>
 </html>                                         
