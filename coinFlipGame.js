@@ -19,7 +19,7 @@
        
         // Determine if the coin landed on heads or tails. Even will be heads and Odd will be tails.
         //1st coin flip
-        if(FlipCoin1/2 == 1) {
+        if(FlipCoin1%2 == 0) {
             var flipResult1 = "Heads";
         }
         else{
@@ -27,14 +27,14 @@
         }
 
         //2nd coin flip
-        if(FlipCoin2/2 == 1) {
+        if(FlipCoin2%2 == 0) {
             var flipResult2 = "Heads";
         }
         else{
             var flipResult2 = "Tails";
         }
         //3rd coin flip
-        if(FlipCoin3/2 == 1) {
+        if(FlipCoin3%2 == 0) {
             var flipResult3 = "Heads";
         }
         else{
@@ -45,16 +45,16 @@
         let message = "<strong> The coins landed on: </strong>" + flipResult1 + ", " + flipResult2 + ", and " + flipResult3 + ". <br>";
 
         //Figure out which combination of coins we got.
-        if(FlipCoin1/2 == 1 && FlipCoin2/2 ==1 && FlipCoin3 == 1) {
+        if(FlipCoin1%2 == 0 && FlipCoin2%2 == 0 && FlipCoin3%2 == 0) {
             message += "<h2> You Win!!! <h2>";
         }
-        else if (FlipCoin1/2 == 1 && FlipCoin2/2 ==1){
+        else if (FlipCoin1%2 == 0 && FlipCoin2%2 == 0){
             message += "<h2> You Win!!! <h2>";
         }
-        else if (FlipCoin1/2 == 1 && FlipCoin3/2 ==1){
+        else if (FlipCoin1%2 == 0 && FlipCoin3%2 ==0){
             message += "<h2> You Win!!! <h2>";
         }
-        else if (FlipCoin2/2 == 1 && FlipCoin3/2 ==1){
+        else if (FlipCoin2%2 == 0 && FlipCoin3%2 ==0){
             message += "<h2> You Win!!! <h2>";
         }
         else {
