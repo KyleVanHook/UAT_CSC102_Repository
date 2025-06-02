@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip Game</title>
+
+    <style>
+         body {
+            background-color: bisque;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        button{
+            padding: 0.5rem 1rem;
+            background-color: #11196d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Kyle's Coin Flip Game</h1>
+    <p>Click the button to flip three coins. If more coins land on heads than tails, you win! If more coins land on tails than heads, you lose.</p>
+    <button onClick = "playGame()"> Flip some Coins.</button>
+    <!--Display's how many times we have flipped the set of coins-->
+    <p>Flipped: <span id="display">0</span> Times </p>
+    
+    <!--Small java script to count the amount of times the coin is flipped.-->
+
+    <!--Designating the output, that coinFlipGame will use to display the results of its calculations.-->
+    <div id = "output" style = "margin-top: 20px; font-size: 18px;"></div>
+    <!--Getting the coinFlipGame file that has the code for the game-->
+    <script src = "coinFlipGame.js"></script>
+</body>
+</html>
