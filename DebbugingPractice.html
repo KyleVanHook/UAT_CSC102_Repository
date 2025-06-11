@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debbuging issues.</title>
+    <style>
+          body {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            padding: 30px;
+            background-color:bisque;
+        }
+
+        h1 {
+            color:rgb(0, 134, 139);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            background-color:rgb(0, 134, 139);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to UAT banking!</h1>
+    <p>Please select to deposit or withdraw $10.</p>
+    <button onClick = "depositMoney()">Deposit</button>
+    <button onClick = "withdrawMoney()">Withdraw</button>
+    <p>Account: $ <span id="display">100</span></p>
+    <div id = "output"></div>
+
+    <script>
+        //Deposit an amount of money into a bank account.
+        function depositMoney() {
+            var accountAmount = document.getElementById("display");
+            var oldAccountAmount = accountAmount.innerHTML;
+            var depositAmount = 10;
+
+            var newAccountAmount = oldAccountAmount;
+            
+            //need to add deposit amount to the old account.
+            let i = 0;
+            while(i < depositAmount){
+                newAccountAmount++;
+                i++;
+            }
+
+           
+            //increments the displayed number to the new calculate number.
+            accountAmount.innerHTML = newAccountAmount;
+
+            let message = "<strong>Starting account amount: </strong> $" + oldAccountAmount + 
+            "<br><strong>Deposit amount: </strong> $" + depositAmount + "<br><strong>New account amount: </strong> $" + newAccountAmount;
+
+            document.getElementById("output").innerHTML = message;
+
+        }
+
+        function withdrawMoney() {
+            var accountAmount = document.getElementById("display");
+            var oldAccountAmount = accountAmount.innerHTML;
+            let withdrawAmount = 10;
+
+            var newAccountAmount = oldAccountAmount;
+            
+            //need to subtract deposit amount to the old account.
+            let i = 0;
+            while(i < withdrawAmount){
+                newAccountAmount--;
+                i++;
+            }
+
+           
+            //increments the displayed number to the new calculate number.
+            accountAmount.innerHTML = newAccountAmount;
+
+            let message = "<strong>Starting account amount: </strong> $" + oldAccountAmount + 
+            "<br><strong>Withdraw amount: </strong> $" + withdrawAmount + "<br><strong>New account amount: </strong> $" + newAccountAmount;
+
+            document.getElementById("output").innerHTML = message;
+
+        }
+    </script>
+
+    
+</body>
+</html>
