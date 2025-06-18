@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zodiac Sign Finder</title>
+
+        <style>
+         body {
+            background-color: rgb(81, 17, 106);
+            text-align: center;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        button{
+            padding: 0.5rem 1rem;
+            background-color: #8e8e13;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+                button:hover {
+            background-color: #3b3b0a;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>Time to find your Zodiac Sign!</h1>
+    <p>Please type in your first and last name, as well as your birth month, day, and year.</p>
+    <!--All of the inputs-->
+    <input type = "text" id = "firstName" placeholder = "First Name">
+    <input type = "text" id = "lastName" placeholder = "Last Name"><br>
+    <input type = "text" id = "month" placeholder = "Birth Month"><br>
+    <input type = "text" id = "day" placeholder = "Birth Day"><br>
+    <input type = "text" id = "year" placeholder = "Birth Year"><br>
+    <p></p>
+
+    <button onClick = "validateInputs()">Find my sign.</button>
+    <p></p>
+    <div id = "output"></div>
+
+    <script>
+        function validateInputs(){
+             let firstName = document.getElementById("firstName").value.trim();
+            let lastName = document.getElementById("lastName").value.trim();
+            let month = document.getElementById("month").value.trim();
+            let day = document.getElementById("day").value.trim();
+            let year = document.getElementById("year").value.trim();
+            let output = document.getElementById("output");
+            output.innerHTML = "";
+
+            let fullName = firstName + " " + lastName;
+
+            //User Validation
+            if(fullName.length > 20) {
+                output.innerHTML = "Your full name is too long (more than 20 characters!).";
+                return;
+            }
+
+            //validate that the entered month is correct
+            let lowerCaseMonth = month.toLocaleLowerCase();
+            console.log(lowerCaseMonth);
+
+            if((lowerCaseMonth == "january")||(lowerCaseMonth == "february")||(lowerCaseMonth == "march")||(lowerCaseMonth == "april")
+            ||(lowerCaseMonth == "may")||(lowerCaseMonth == "june")||(lowerCaseMonth == "july")||(lowerCaseMonth == "august")
+            ||(lowerCaseMonth == "september")||(lowerCaseMonth == "october") ||(lowerCaseMonth == "november")||(lowerCaseMonth == "december")) {
+                
+                //output.innerHTML = "Your name is " + fullName + " and your birth month is: " + month + ". <br>";
+
+                //need to check the day of the month to find the zodiac sign.
+                //january
+                if(lowerCaseMonth == "january"){
+                    //less than
+                    if(day <= 20) {
+                        output.innerHTML = "You were born on the " + day + " of January, " + year +".<br> You are an <strong>Capricorn!</strong>";
+                        return;
+                    }
+                    //greater than
+                    else if (day >= 21){
+                        output.innerHTML = "You were born on the " + day + " of January, " + year +".<br> You are an <strong>Aquarius!</strong>";
+                        return;
+                    }
+                }
+            
+
+                //february
+                if(lowerCaseMonth == "february"){
+                    //less than
+                    if(day <= 18) {
+                        output.innerHTML = "You were born on the " + day + " of February, " + year +".<br> You are an <strong>Aquarius!</strong>";
+                        return;
+                    }
+                    //greater than
+                    else if (day >= 19){
+                        output.innerHTML = "You were born on the " + day + " of February, " + year +".<br> You are an <strong>Pisces!</strong>";
+                        return;
+                    }
+                }
+                
+
+                //march
+                if(lowerCaseMonth == "march"){
+                    //less than
+                    if(day <= 20) {
+                        output.innerHTML = "You were born on the " + day + " of March, " + year +".<br> You are an <strong>Pisces!</strong>";
+                        return;
+                    }
+                    //greater than
+                    else if (day >= 21){
+                        output.innerHTML = "You were born on the " + day + " of March, " + year +".<br> You are an <strong>Aries!</strong>";
+                        return;
+                    }
+                }
+                
+
+                //april
+                if(lowerCaseMonth == "april"){
+                    //less than
+                    if(day <= 19) {
+                        output.innerHTML = "You were born on the " + day + " of April, " + year +".<br> You are an <strong>Aries!</strong>";
+                        return;
+                    }
+                    //greater than
+                    else if (day >= 20){
+                        output.innerHTML = "You were born on the " + day + " of April, " + year +".<br> You are an <strong>Taurus!</strong>";
+                        return;
+                    }
+                }
+        
+
+                //may
+                if(lowerCaseMonth == "may"){
+                    //less than
+                    if(day <= 20) {
+                        output.innerHTML = "You were born on the " + day + " of May, " + year +".<br> You are an <strong>Taurus!</strong>";
+                        return;
+                    }
+                     //greater than
+                    else if (day >= 21){
+                        output.innerHTML = "You were born on the " + day + " of May, " + year +".<br> You are an <strong>Gemini!</strong>";
+                        return;
+                    }
+                }
+               
+                
+                //june
+                if(lowerCaseMonth == "june"){
+                    //less than
+                    if(day <= 20) {
+                        output.innerHTML = "You were born on the " + day + " of June, " + year +".<br> You are an <strong>Gemini!</strong>";
+                        return;
+                    }
+                    //greater than
+                    else if (day >= 21){
+                        output.innerHTML = "You were born on the " + day + " of June, " + year +".<br> You are an <strong>Cancer!</strong>";
+                        return;
+                    }
+                }
+   
+
+                //july
+                if(lowerCaseMonth == "july"){
+                    //less than
+                    if(day <= 22) {
+                        output.innerHTML = "You were born on the " + day + " of July, " + year +".<br> You are an <strong>Cancer!</strong>";
+                        return;
+                    }
+                    //greater than
+                    else if (day >= 23){
+                        output.innerHTML = "You were born on the " + day + " of July, " + year +".<br> You are an <strong>Leo!</strong>";
+                        return;
+                    }
+                }
+                
+
+                //august
+                if(lowerCaseMonth == "august"){
+                    //less than
+                    if(day <= 22) {
+                        output.innerHTML = "You were born on the " + day + " of August, " + year +".<br> You are an <strong>Leo!</strong>";
+                        return;
+                    }
+                    //greater than
+                    else if (day >= 23){
+                        output.innerHTML = "You were born on the " + day + " of August, " + year +".<br> You are an <strong>Virgo!</strong>";
+                        return;
+                    }
+                }
+                
+
+                //september
+                if(lowerCaseMonth == "september"){
+                    //less than
+                    if(day <= 22) {
+                        output.innerHTML = "You were born on the " + day + " of September, " + year +".<br> You are an <strong>Virgo!</strong>";
+                        return;
+                    }
+                     //greater than
+                    else if (day >= 23){
+                        output.innerHTML = "You were born on the " + day + " of September, " + year +".<br> You are an <strong>Libra!</strong>";
+                        return;
+                    }
+                }
+               
+
+                //october
+                if(lowerCaseMonth == "october"){
+                    //less than
+                    if(day <= 22) {
+                        output.innerHTML = "You were born on the " + day + " of October, " + year +".<br> You are an <strong>Libra!</strong>";
+                        return;
+                    }
+                    //greater than
+                    else if (day >= 23){
+                        output.innerHTML = "You were born on the " + day + " of October, " + year +".<br> You are an <strong>Scorpio!</strong>";
+                        return;
+                    }
+                }
+                
+
+                //november
+                if(lowerCaseMonth == "november"){
+                    //less than
+                    if(day <= 21) {
+                        output.innerHTML = "You were born on the " + day + " of November, " + year +".<br> You are an <strong>Scorpio!</strong>";
+                        return;
+                    }
+                    //greater than
+                    else if (day >= 22){
+                        output.innerHTML = "You were born on the " + day + " of November, " + year +".<br> You are an <strong>Sagittarius!</strong>";
+                        return;
+                    }
+                }
+
+                //december
+                if(lowerCaseMonth == "december"){
+                    //less than
+                    if(day <= 21) {
+                        output.innerHTML = "You were born on the " + day + " of December, " + year +".<br> You are an <strong>Sagittarius!</strong>";
+                        return;
+                    }
+                    //greater than
+                    else if (day >= 22){
+                        output.innerHTML = "You were born on the " + day + " of December, " + year +".<br> You are an <strong>Capricorn!</strong>";
+                        return;
+                    }
+                }
+                
+            }
+            else {
+                output.innerHTML = "This is not a valid month or its spelled wrong. Please re-type.";
+                return;
+            }
+
+            
+
+        }
+    </script>
+</body>
+</html>
