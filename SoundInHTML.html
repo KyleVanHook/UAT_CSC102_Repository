@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play a Sound Example.</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #2c8e97;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #2ecc71;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #208f4e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click to play your Sound.</h1>
+    <button onclick = "playSoundOne()">Play Sound!</button>
+    <button onclick = "playSoundTwo()">Go Boing.</button>
+    <button onclick = "playSoundThree()">Hum.</button>
+
+    <audio id="playSoundOne">
+        <source src="jungle-waves-drumampbass-electronic-inspiring-promo-345013.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="playSoundTwo">
+        <source src="boing-101318.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="playSoundThree">
+        <source src="girlprettyvoicehumming-35489.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <script>
+        function playSoundOne() {
+            //Get all three sounds
+            const soundOne = document.getElementById("playSoundOne");
+            const soundTwo = document.getElementById("playSoundTwo");
+            const soundThree = document.getElementById("playSoundThree");
+            // Pause any currently playing sounds
+            soundTwo.pause();
+            soundThree.pause();
+            soundOne.currentTime = 0; // Rewind to start in case it was already playing.
+            soundOne.play();
+        }
+
+        function playSoundTwo() {
+            // Get all three sounds
+            const soundOne = document.getElementById("playSoundOne");
+            const soundTwo = document.getElementById("playSoundTwo");
+            const soundThree = document.getElementById("playSoundThree");
+            // Pause any currently playing sounds.
+            soundOne.pause();
+            soundThree.pause();
+            soundTwo.currentTime = 0; // Rewind to start in case it was already playing.
+            soundTwo.play();
+        }
+
+        function playSoundThree() {
+            const soundOne = document.getElementById("playSoundOne");
+            const soundTwo = document.getElementById("playSoundTwo");
+            const soundThree = document.getElementById("playSoundThree");
+            // Pause any currently playing sounds.
+            soundOne.pause();
+            soundTwo.pause();
+            soundThree.currentTime = 0; // Rewind to start in case it was already playing.
+            soundThree.play();
+        }
+    </script>
+</body>
+</html>
