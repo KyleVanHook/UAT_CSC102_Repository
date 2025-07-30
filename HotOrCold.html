@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot or Cold</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background-color: #1e38affe;
+            text-align: center;
+            color: #000000;
+            margin: 10px;
+            padding: 40px;
+            font-size: 40px;
+        }
+
+        h1 {
+            color:#000000;
+        }
+
+        button{
+            padding: 1rem 2rem;
+            background-color: #179c59;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+            button:hover {
+            background-color: #0d5b34;
+        }
+
+        p {
+            font-size: 35px;
+        }
+
+        div {
+            font-size: 35px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>The <u>Hot or Cold</u> Game</h1>
+    <p>Click the button and guess a number between 1 & 100.</p>
+    <p>See how many guesses it takes you.</p>
+
+    <button onclick = "runGame()">Play</button>
+     <div id = "output">Waiting for game to end.</div>
+     <div id = "counter">Total Guesses: 0</div>
+
+    <script>
+        function runGame() {
+
+            // generate a random number between 1 and 100.
+            let randNum = Math.floor(Math.random() * 100) + 1;
+
+            let guessCount = 0;
+
+            let playerGuess = parseInt(prompt("Guess a number."));
+            //increment guesses
+            guessCount++;
+
+            // Loop this event at least once, and check that the player's guess is not less than or greater than the random number.
+            // If the player's guess is greater or lower, tell the player and ask for another guess.
+            do {
+
+                if(playerGuess > randNum) {
+                    
+                    playerGuess = parseInt(prompt("Too hot. Guess a number lower."));
+                    guessCount++;
+
+                }else if(playerGuess < randNum) {
+
+                    playerGuess = parseInt(prompt("Too cold. Guess a number higher."));
+                    guessCount++;
+                }
+                
+
+            } while(playerGuess != randNum);
+            
+            document.getElementById("output").innerText = `Great job, you guessed the number! Press the button again to play again!`;
+            document.getElementById("counter").innerText = `Total keys pressed: ${guessCount}`;
+
+
+        }
+
+    </script>
+
+</body>
+</html>
