@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final User Input</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background-color: #fbf1d8fe;
+            text-align: center;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        button{
+            padding: 0.5rem 1rem;
+            background-color: #0b0b92;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+            button:hover {
+            background-color: #0b0b6c;
+        }
+
+        main {
+            font-size: 30px;
+        }
+
+        #output {
+            padding-top: 0.5rem;
+        }
+
+        input {
+           padding: 0.5rem 0.5rem; 
+           margin: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>In order to acess this web page, please enter your verification infromation.</h1>
+    <input type = "text" id = "firstName" placeholder = "First Name">
+    <input type = "text" id = "lastName" placeholder = "Last Name"><br>
+    <input type = "text" id = "email" placeholder = "Email"><br>
+
+    <button onClick = "validateInputs()">Login</button>
+    <div id = "output"></div>
+
+     <script>
+        //validate that the inputs are valid before logging in.
+        function validateInputs(){
+            let firstName = document.getElementById("firstName").value.trim();
+            let lastName = document.getElementById("lastName").value.trim();
+            let emailName = document.getElementById("email").value.trim();
+
+            let output = document.getElementById("output");
+            output.innerHTML = "";
+
+            //check that first and last names are filled in.
+            if(firstName.length <= 0) {
+                output.innerHTML = "Please enter a valid first name.";
+                return;
+            }
+
+            if(lastName.length <= 0) {
+                output.innerHTML = "Please enter a valid last name.";
+                return;
+            }
+
+            let fullName = firstName + " " + lastName;
+           
+ 
+            let emailValid = false;
+
+
+
+            //User Validation
+            if(fullName.length > 20) {
+                output.innerHTML = "Your full name is too long (more than 20 characters!).";
+                return;
+            }
+
+            //check that the emial entered has '@' to make it a valid email.
+            for(let i = 0; i < emailName.length; i++) {
+
+                let letter = emailName[i];
+
+                if(letter == "@") {
+                    emailValid = true;
+                }
+
+            }
+
+            //check if email is valid.
+            if(emailValid == false) {
+                output.innerHTML = "Please enter a valid Email.";
+                return;
+            }
+
+            output.innerHTML = "Valid. Loading Page...";
+
+            //delay code for 3 seconds
+            setTimeout(movePage, 3000);
+        }
+
+        function movePage() {
+             //go to the page
+            window.location.replace("FinalIndexPage.html");
+        }
+    </script>
+    
+</body>
+</html>

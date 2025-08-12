@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Contact</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background-color: #fbf1d8fe;
+            text-align: center;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            color: rgb(14, 47, 101);
+            margin: 10px;
+            padding: 5px;
+        }
+
+        main {
+            font-size: 30px;
+        }
+
+        header {
+            background-color: #0d7630;
+            color: white;
+            padding: 1rem;
+            width: 98%;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #0d7630;
+            color: white;
+            padding: 1rem;
+            width: 98%;
+            margin-top: 270px;
+            text-align: center;
+        }
+
+        input {
+           padding: 0.5rem 0.5rem; 
+           margin: 0.5rem;
+        }
+
+        #output {
+            padding-top: 0.8rem;
+        }
+
+        button{
+            padding: 0.5rem 1rem;
+            background-color: #0b0b92;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0b0b6c;
+        }
+
+        .field {
+            box-shadow: 0px, 0px, 10px, #000000;
+            padding: 10px;
+            margin-left: 150px;
+            margin-right: 150px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 25px;
+        }
+
+        li {
+            text-align: left;
+            font-size: 20px;
+            padding: 0.5rem 0.5rem; 
+            margin: 0.5rem;
+        }
+
+
+
+    </style>
+</head>
+<body>
+     <header>
+        <h1> Contact</h1>
+        <!--Creating the Navigation for our page-->
+        <nav>
+            <a href="./FinalIndexPage.html">Home</a>
+            <a href = "./FinalBMIChecker.html"> BMI</a>
+            <a href = "./FinalTipsAndRecipies.html">Tips & Recipies</a>
+        </nav>
+    </header>
+
+
+
+        <p>If you've reached this far, then don't forget that other people are trying the same as you! You are not alone on this journey.</p>
+
+        <!--Creating a div field for my Contact info-->
+        <div class = "field">
+            <h2 style = "padding-bottom: 60px;"><u>My Contacts</u></h2>
+            <ul>
+                <li><u>Name:</u> Kyle Van Hook</li>
+                <li><u>Email:</u> kylevanhook@hotmail.com</li>
+                <li><u>Phone Number:</u> (480) 321-6540</li>
+                <li><u>LinkedIn:</u> <a href = "https://www.linkedin.com/in/kyle-van-hook-3200a82a3/">https://www.linkedin.com/in/kyle-van-hook-3200a82a3/</a></li>
+            </ul>
+        </div>
+
+        <!--Creating a div field for users to send their info to me "hypathetically"-->
+        <div class = "field">
+            <h2 ><u>Reach out to me!</u></h2>
+            <input type = "text" id = "firstName" placeholder = "First Name">
+            <input type = "text" id = "lastName" placeholder = "Last Name"><br>
+            <input type = "text" id = "email" placeholder = "Email"><br>
+            <input type = "text" id = "phone" placeholder = "Phone Number"><br>
+                
+            <button onClick = "validateInputs()">Send</button>
+            <div id = "output">Waiting for info...</div>
+        </div>
+
+
+    </body>
+
+    <!--A footer-->
+    <footer>
+        Kyle Van Hook <br>
+        University of Advancing Technology<br>
+        2625 W. Baseline Road<br>
+        Tempe, AZ 85283-1056<br>
+    </footer>
+
+    <script>
+        //validate that the inputs are valid before logging in.
+        function validateInputs(){
+            let firstName = document.getElementById("firstName").value.trim();
+            let lastName = document.getElementById("lastName").value.trim();
+            let emailName = document.getElementById("email").value.trim();
+            let phoneNumber = document.getElementById("phone").value.trim();
+
+            let output = document.getElementById("output");
+            output.innerHTML = "";
+
+            //check that first and last names are filled in.
+            if(firstName.length <= 0) {
+                output.innerHTML = "Please enter a valid first name.";
+                return;
+            }
+
+            if(lastName.length <= 0) {
+                output.innerHTML = "Please enter a valid last name.";
+                return;
+            }
+
+            if(phoneNumber.length <= 9 || phoneNumber.length >= 11) {
+                output.innerHTML = "Please enter a valid phone number";
+                return;
+            }
+
+            let fullName = firstName + " " + lastName;
+           
+ 
+            let emailValid = false;
+
+
+
+            //User Validation
+            if(fullName.length > 20) {
+                output.innerHTML = "Your full name is too long (more than 20 characters!).";
+                return;
+            }
+
+            //check that the emial entered has '@' to make it a valid email.
+            for(let i = 0; i < emailName.length; i++) {
+
+                let letter = emailName[i];
+
+                if(letter == "@") {
+                    emailValid = true;
+                }
+
+            }
+
+            //check if email is valid.
+            if(emailValid == false) {
+                output.innerHTML = "Please enter a valid Email.";
+                return;
+            }
+
+            output.innerHTML = "Info sent. I may contact you. Keep trying to lose weight!";
+
+        }
+        </script>
+</body>
+</html>
