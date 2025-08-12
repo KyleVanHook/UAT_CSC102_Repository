@@ -38,7 +38,7 @@
             color: white;
             padding: 1rem;
             width: 98%;
-            margin-top: 270px;
+            margin-top: 265px;
             text-align: center;
         }
 
@@ -90,6 +90,12 @@
     </style>
 </head>
 <body>
+
+    <audio id="dingSound">
+        <source src="ding-80828.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
      <header>
         <h1> Contact</h1>
         <!--Creating the Navigation for our page-->
@@ -141,6 +147,9 @@
     <script>
         //validate that the inputs are valid before logging in.
         function validateInputs(){
+
+            const soundOne = document.getElementById("dingSound");
+
             let firstName = document.getElementById("firstName").value.trim();
             let lastName = document.getElementById("lastName").value.trim();
             let emailName = document.getElementById("email").value.trim();
@@ -196,6 +205,9 @@
             }
 
             output.innerHTML = "Info sent. I may contact you. Keep trying to lose weight!";
+
+            soundOne.currentTime = 0; // Rewind to start in case it was already playing.
+            soundOne.play();
 
         }
         </script>

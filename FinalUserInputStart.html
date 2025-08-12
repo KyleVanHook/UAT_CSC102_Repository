@@ -49,12 +49,19 @@
     <input type = "text" id = "lastName" placeholder = "Last Name"><br>
     <input type = "text" id = "email" placeholder = "Email"><br>
 
+    <audio id="dingSound">
+        <source src="ding-80828.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <button onClick = "validateInputs()">Login</button>
     <div id = "output"></div>
 
      <script>
         //validate that the inputs are valid before logging in.
         function validateInputs(){
+            const soundOne = document.getElementById("dingSound");
+
             let firstName = document.getElementById("firstName").value.trim();
             let lastName = document.getElementById("lastName").value.trim();
             let emailName = document.getElementById("email").value.trim();
@@ -104,6 +111,9 @@
             }
 
             output.innerHTML = "Valid. Loading Page...";
+
+            soundOne.currentTime = 0; // Rewind to start in case it was already playing.
+            soundOne.play();
 
             //delay code for 3 seconds
             setTimeout(movePage, 3000);

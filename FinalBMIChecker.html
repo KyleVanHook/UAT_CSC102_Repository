@@ -38,7 +38,7 @@
             color: white;
             padding: 1rem;
             width: 98%;
-            margin-top: 690px;
+            margin-top: 430px;
             text-align: center;
         }
 
@@ -69,7 +69,12 @@
 </head>
 <body>
 
-        <header>
+    <audio id="dingSound">
+        <source src="ding-80828.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <header>
         <h1> BMI Checker</h1>
         <!--Creating the Navigation for our page-->
         <nav>
@@ -97,6 +102,9 @@
 
     <script>
         function checkBMI(){
+
+            const soundOne = document.getElementById("dingSound");
+
             let age = document.getElementById("age").value.trim();
             let height = document.getElementById("height").value.trim();
             let weight = document.getElementById("weight").value.trim();
@@ -145,6 +153,10 @@
              else {
                 output.innerHTML = `Your BMI is: <strong>${BMI}</strong>. You are at Class 3 Obesity, which is SEVERLY obese. Go to a doctor, NOW!`;
             }
+
+            soundOne.currentTime = 0; // Rewind to start in case it was already playing.
+            soundOne.play();
+
            
         }
     </script>
